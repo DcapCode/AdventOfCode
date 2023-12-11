@@ -1,4 +1,5 @@
 use crate::utils::read_lines;
+static DAY: &str = "Day01";
 pub fn main() {
     let input_file_path = std::env::current_dir().unwrap()
         .join("src").join("day01").join("input.txt");
@@ -6,17 +7,16 @@ pub fn main() {
         let lines_vec:Vec<String> = lines.filter_map(|line|line.ok()).collect();
         part_a(&lines_vec);
         part_b(lines_vec);
-        // println!("{}",test(lines_vec).unwrap());
     };
 }
 
 fn part_a(lines: &Vec<String>) {
-    let mut number_res: i32 = 0;
+    let mut res: i32 = 0;
     for line in lines {
-        number_res += find_first_and_last_numbers_combine(&line);
+        res += find_first_and_last_numbers_combine(&line);
     }
 
-    println!("Day01 A result: {}", number_res)
+    println!("{1} A result: {0}", res, DAY)
 }
 
 
@@ -101,5 +101,5 @@ fn part_b (input: Vec<String>) {
         })
         .sum();
 
-        println!("Day01 B result: {}", res)
+        println!("{1} B result: {0}", res, DAY)
 }
